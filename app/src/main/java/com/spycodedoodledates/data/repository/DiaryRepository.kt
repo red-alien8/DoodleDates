@@ -16,38 +16,24 @@ class DiaryRepository @Inject constructor(
 
     suspend fun insertStroke(stroke: StrokeEntity): Long = diaryDao.insertStroke(stroke)
 
-    suspend fun deleteStroke(stroke: StrokeEntity) {
-        diaryDao.deleteStroke(stroke)
-    }
+    suspend fun deleteStroke(stroke: StrokeEntity) = diaryDao.deleteStroke(stroke)
     
-    suspend fun deleteStrokeById(id: Long) {
-        diaryDao.deleteStrokeById(id)
-    }
+    suspend fun deleteStrokeById(id: Long) = diaryDao.deleteStrokeById(id)
 
-    suspend fun clearStrokesForMonth(monthKey: String) {
-        diaryDao.clearStrokesForMonth(monthKey)
-    }
+    suspend fun clearStrokesForMonth(monthKey: String) = diaryDao.clearStrokesForMonth(monthKey)
 
-    suspend fun clearNotesForMonth(monthKey: String) {
-        diaryDao.clearNotesForMonth(monthKey)
-    }
+    suspend fun clearNotesForMonth(monthKey: String) = diaryDao.clearNotesForMonth(monthKey)
 
     fun getNotesForMonth(monthKey: String): Flow<List<NoteEntity>> =
         diaryDao.getNotesForMonth(monthKey)
 
     suspend fun insertNote(note: NoteEntity): Long = diaryDao.insertNote(note)
 
-    suspend fun updateNote(note: NoteEntity) {
-        diaryDao.updateNote(note)
-    }
+    suspend fun updateNote(note: NoteEntity) = diaryDao.updateNote(note)
 
-    suspend fun deleteNote(note: NoteEntity) {
-        diaryDao.deleteNote(note)
-    }
+    suspend fun deleteNote(note: NoteEntity) = diaryDao.deleteNote(note)
     
-    suspend fun deleteNoteById(id: Long) {
-        diaryDao.deleteNoteById(id)
-    }
+    suspend fun deleteNoteById(id: Long) = diaryDao.deleteNoteById(id)
 
     suspend fun hasDataForMonth(monthKey: String): Boolean {
         val strokeCount = diaryDao.getStrokeCountForMonth(monthKey)

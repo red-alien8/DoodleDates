@@ -14,13 +14,13 @@ interface DiaryDao {
     suspend fun insertStroke(stroke: StrokeEntity): Long
 
     @Delete
-    suspend fun deleteStroke(stroke: StrokeEntity): Int
+    suspend fun deleteStroke(stroke: StrokeEntity)
 
     @Query("DELETE FROM strokes WHERE id = :id")
-    suspend fun deleteStrokeById(id: Long): Int
+    suspend fun deleteStrokeById(id: Long)
 
     @Query("DELETE FROM strokes WHERE monthKey = :monthKey")
-    suspend fun clearStrokesForMonth(monthKey: String): Int
+    suspend fun clearStrokesForMonth(monthKey: String)
 
     @Query("SELECT * FROM notes WHERE monthKey = :monthKey ORDER BY createdAt ASC")
     fun getNotesForMonth(monthKey: String): Flow<List<NoteEntity>>
@@ -29,16 +29,16 @@ interface DiaryDao {
     suspend fun insertNote(note: NoteEntity): Long
 
     @Update
-    suspend fun updateNote(note: NoteEntity): Int
+    suspend fun updateNote(note: NoteEntity)
 
     @Delete
-    suspend fun deleteNote(note: NoteEntity): Int
+    suspend fun deleteNote(note: NoteEntity)
 
     @Query("DELETE FROM notes WHERE id = :id")
-    suspend fun deleteNoteById(id: Long): Int
+    suspend fun deleteNoteById(id: Long)
 
     @Query("DELETE FROM notes WHERE monthKey = :monthKey")
-    suspend fun clearNotesForMonth(monthKey: String): Int
+    suspend fun clearNotesForMonth(monthKey: String)
 
     @Query("SELECT COUNT(*) FROM strokes WHERE monthKey = :monthKey")
     suspend fun getStrokeCountForMonth(monthKey: String): Int
