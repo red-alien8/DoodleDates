@@ -21,7 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "DoodleDates"
 include(":app")
-include(":server-core")
 include(":data")
 include(":domain")
-include(":ui")
