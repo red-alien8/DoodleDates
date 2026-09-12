@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.spycodedoodledates"
-    compileSdk = 37
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.spycodedoodledates"
