@@ -1,88 +1,108 @@
-# 📔 Diary Calendar 2026: Your Year as a Canvas
+_# 📔 Diary Calendar 2026: Your Year as a Canvas
 
-## 🚀 Overview
-**Diary Calendar 2026** is a native Android application that redefines the traditional digital diary. Instead of rigid lists, it provides a free-form interactive canvas layered over your calendar. You can draw, write rich-text sticky notes, and set location-independent reminders—all while staying informed about local holidays and weekends.
-
----
-
-## ✨ Key Features
-
-### 🖌️ Interactive Drawing Layer
-- **Pressure-Sensitive Ink:** Natural writing experience with finger or stylus support.
-- **Precise Eraser:** Pixel-perfect removal of ink using `BlendMode.Clear`.
-- **Resolution Independent:** All drawings are stored as relative fractions (0..1), ensuring they look perfect on any screen size or orientation.
-- **Coarse Undo/Redo:** In-memory snapshot stack to quickly fix mistakes.
-
-### 🗒️ Dynamic Sticky Notes
-- **Free Placement:** Tap anywhere in the workspace to drop a note.
-- **Movable & Resizable:** Dedicated headers for dragging and a robust corner handle for resizing.
-- **Rich Text Formatting:** Support for **Bold**, *Italic*, and varied alignments.
-- **Internal Scrolling:** Long content stays readable within the note without overflowing.
-
-### ✍️ Full-Screen Editor
-- **Distraction-Free:** A dedicated overlay for comfortable, long-form writing.
-- **Real-time Sync:** Changes are instantly saved and reflected on the workspace canvas.
-- **Auto-Focus:** Instantly brings up the keyboard for immediate input.
-
-### ⏰ Advanced Alarms & Reminders
-- **Contextual Reminders:** Tie an alarm directly to a specific note.
-- **Immersive Alarm Screen:** A beautiful, full-screen alert with animated gradients and swipe-to-dismiss.
-- **Customization:** Support for custom ringtones and vibration patterns.
-- **Boot Persistence:** Alarms are automatically re-registered after a device reboot.
-
-### 💾 Data Security & Portability
-- **JSON Backup:** Export your entire diary (strokes and notes) to a JSON file for safe keeping.
-- **Seamless Import:** Restore your backup anytime to recover your memories on a new device.
-- **Offline First:** Your data never leaves your device unless you choose to export it.
-
-### 🇧🇩 Regional Intelligence & multi-year
-- **Bangladesh Holidays:** Automatically highlights government holidays (e.g., Shaheed Day, Eid-ul-Fitr) in rose/red.
-- **Weekend Support:** Teal-tinted highlighting for Fridays and Saturdays.
-- **Islamic Date Awareness:** Notations for moon-sighting dependent dates.
-- **Yearly Coverage:** Full support for 2026, with an extended calendar up to 2030.
+## 🚀 Project Overview
+**Diary Calendar 2026** is a native Android application designed to bridge the gap between traditional paper journaling and digital convenience. Built for the modern user, it provides a free-form interactive canvas layered over a calendar, allowing for handwritten notes, rich-text sticky notes, and precise reminders.
 
 ---
 
-## 🛠️ Technology Stack (What's Under the Hood?)
+## ✨ Key Features & Functionality
 
-### **Core Language & UI**
-- **Kotlin:** The primary language for modern Android development.
-- **Jetpack Compose:** A fully declarative UI toolkit (Material 3) for reactive and smooth interfaces.
-- **Fraunces Serif Font:** Custom bundled font for a classic, diary-like aesthetic.
+### 🖌️ Interactive Drawing Engine
+- **Free-hand Writing:** Capture thoughts naturally with finger or stylus support.
+- **Precision Tools:** Switch between a high-fidelity Pen and a pixel-perfect Eraser.
+- **Resolution Independence:** Ink is stored as relative fractions, ensuring your drawings look sharp on any device, from phones to tablets.
 
-### **Architecture & DI**
-- **MVVM (Model-View-ViewModel):** Separation of concerns for high maintainability.
-- **Hilt (Dagger):** Dependency Injection for decoupled and testable components.
-- **Repository Pattern:** Centralized data access layer wrapping Room and DataStore.
+### 🗒️ Smart Sticky Notes
+- **Movable & Resizable:** Drag notes to any date or margin; resize them to fit your content.
+- **Rich Formatting:** Style your text with Bold, Italic, and varying alignments.
+- **Pastel Palette:** Color-code your thoughts with soft, eye-pleasing background presets.
 
-### **Data Persistence**
-- **Room Database:** SQLite-backed local storage for strokes and notes (Source of Truth).
-- **Jetpack DataStore:** Preferences storage for persistent theme settings and alarm preferences.
-- **Kotlinx Serialization:** For JSON encoding/decoding of drawing data and backup files.
+### ⏰ Advanced Reminder System
+- **Immersive Alarms:** Full-screen animated alerts that demand attention without being intrusive.
+- **Snooze & Deep Link:** Snooze reminders or tap to jump directly into the relevant workspace.
+- **Persistence:** Alarms are automatically restored if your phone restarts.
 
-### **Navigation & Lifecycle**
-- **Jetpack Navigation-Compose:** Type-safe routing between Dashboard, Workspace, and Theme screens.
-- **Lifecycle Observers:** Auto-saving data on `onStop` to prevent data loss.
+### 🇧🇩 Regional Intelligence
+- **Bangladesh Holidays:** Pre-configured with all 2026 government holidays and weekends (Fri/Sat).
+- **Multi-Year Support:** Seamlessly navigate and journal from 2026 through 2030.
 
-### **System Integration**
-- **AlarmManager:** For exact and power-efficient scheduling of reminders.
-- **Broadcast Receivers:** To handle system events like `BOOT_COMPLETED` and alarm triggers.
-- **Notifications API:** High-priority alerts with full-screen intent support.
-- **Content Resolver:** For interacting with the Android file system during import/export.
+### 💾 Data Portability
+- **JSON Export/Import:** Move your entire year of data between devices with simple backup files.
+- **Offline First:** 100% private. No accounts, no internet, no trackers.
 
 ---
 
-## 🎨 Visual Identity
-- **Glassmorphic Toolbar:** Semi-transparent, frosted UI for drawing tools.
-- **Immersive Alarms:** Dynamic background animations that grab your attention.
-- **Dynamic Themes:**
-    - **Bound Desk Diary:** Dark navy ink and warm paper.
-    - **Morning Paper:** Clean white and light gray.
-    - **Custom:** Full control over Background, Paper, and Accent colors.
+## 🛠️ Technology Stack
+
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Language** | **Kotlin** | Modern, concise, and safe native development. |
+| **UI Framework** | **Jetpack Compose** | Material 3 declarative UI for reactive components. |
+| **Architecture** | **MVVM** | Decouples business logic from the user interface. |
+| **Dependency Injection** | **Hilt (Dagger)** | Manages object creation and scoping across the app. |
+| **Persistence (Data)** | **Room (SQLite)** | High-performance local storage for strokes and notes. |
+| **Persistence (Prefs)** | **DataStore** | Modern replacement for SharedPreferences for settings. |
+| **Serialization** | **Kotlinx.Serialization** | Converts complex objects (like drawing points) to JSON. |
+| **System APIs** | **AlarmManager** | Schedules exact reminders for sticky notes. |
 
 ---
 
-## 🔒 Privacy & Performance
-- **Zero Tracker Policy:** No account or internet connection required. 
-- **Debounced Saving:** Optimized database writes (~700ms delay) to ensure performance.
-- **Low Footprint:** Efficient rendering that cleans up off-screen components.
+## 📁 Project Structure
+
+```text
+com.spycodedoodledates/
+├── data/
+│   ├── local/              # Room Database, DAOs, and Entities
+│   └── repository/         # Single source of truth for UI data
+├── di/                     # Hilt Modules for dependency management
+├── domain/
+│   └── model/              # Pure data models and holiday logic
+├── notifications/          # BroadcastReceivers for Alarms and Boot
+├── ui/
+│   ├── home/               # 12-month dashboard screens
+│   ├── workspace/          # Canvas and drawing components
+│   ├── settings/           # Data backup and theme selection
+│   └── theme/              # Material 3 styling and color settings
+└── MainActivity.kt         # App entry point and Navigation host
+```
+
+---
+
+## 💡 Code Logic Explained
+
+### 1. The "Canvas" Coordinate System
+To ensure drawings aren't "squashed" when you rotate your screen, we don't store pixels. We store **fractions**.
+
+```kotlin
+// Instead of storing X=500px, Y=800px...
+// We store values between 0.0 and 1.0 relative to screen size.
+data class DrawingPoint(
+    val xFraction: Float, // e.g. 0.5 (middle of screen)
+    val yFraction: Float, // e.g. 0.2 (top of screen)
+    val pressure: Float   // How hard you pressed the stylus
+)
+```
+
+### 2. The Persistent Reminder Flow
+When you set a reminder, the app "talks" to the Android System to ensure it wakes up even if the app is closed.
+
+1. **Schedule:** `AlarmManager` registers a specific time.
+2. **Trigger:** The system sends a signal to our `NoteAlarmReceiver`.
+3. **Notify:** The receiver builds a `Notification` with a **Full Screen Intent**.
+4. **Boot:** If the phone dies, `BootReceiver` re-reads the database and re-schedules every future alarm.
+
+### 3. Reactive UI with Kotlin Flows
+The UI never "asks" for data; it "observes" it.
+
+```kotlin
+// In the Repository
+fun getNotesForMonth(monthKey: String): Flow<List<NoteEntity>> = dao.getNotes(monthKey)
+
+// In the UI
+val notes by viewModel.notes.collectAsState() 
+// When the database changes, the UI updates instantly!
+```
+
+---
+
+**Summary:** This APK is a robust, privacy-focused productivity tool that leverages the latest Android technologies to provide a premium, paper-like experience on a digital device._
